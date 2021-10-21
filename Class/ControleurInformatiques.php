@@ -1,6 +1,6 @@
 <?php
     require_once 'Bdd.php';
-    class ControleurInformatique extends Bdd{
+    class ControleurInformatiques extends Bdd{
         function insert($value){
             $requete = 'INSERT INTO annonce (
                 etats_informatique,
