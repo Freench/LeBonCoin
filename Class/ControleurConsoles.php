@@ -8,7 +8,7 @@
                 modele_console,
                 etat_console,
                 id_annonce) VALUE (?,?,?,?,?)';
-            $pdo = $this-> connect();
+            $pdo = $this->connect();
             $sql =$pdo ->prepare($requete);
             $sql -> execute($value);
             return $pdo->lastInsertId();
