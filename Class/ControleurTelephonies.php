@@ -9,9 +9,10 @@
                 stockage_console,
                 etat_console,
                 id_annonce) VALUE (?,?,?,?,?,?)';
-            $sql = $this-> connect()->prepare($requete);
+            $pdo = $this-> connect();
+            $sql =$pdo ->prepare($requete);
             $sql -> execute($value);
-            return "Annonce enregistrée";
+            return $pdo->lastInsertId();
         }
     }
 ?>

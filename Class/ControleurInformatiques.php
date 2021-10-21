@@ -5,9 +5,10 @@
             $requete = 'INSERT INTO annonce (
                 etats_informatique,
                 id_annonce) VALUE (?,?)';
-            $sql = $this-> connect()->prepare($requete);
+            $pdo = $this-> connect();
+            $sql =$pdo ->prepare($requete);
             $sql -> execute($value);
-            return "Annonce enregistrée";
+            return $pdo->lastInsertId();
         }
     }
 ?>
