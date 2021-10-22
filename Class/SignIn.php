@@ -17,14 +17,10 @@
                 mail_utilisateur,
                 pseudo_utilisateur,
                 mdp_utilisateur) VALUE (?, ?, ?)";
-            var_dump($sql);
             $pdo = $this->connect();
             $query = $pdo->prepare($sql);
             // On injecte (terme scientifique) les valeurs
             $query -> execute($table);
-
         }
     }
-
-
 ?>

@@ -1,21 +1,23 @@
-<?php session_start(); 
+<?php 
 require_once '../Class/Bdd.php';
-require_once '../Class/SignIn.php';
+require_once '../Class/LogIn.php';
 
 ?>
+
 <form method="GET" action="">
     <input type="text" name="mail" placeholder="Entrez votre mail" value="">
     <input type="text" name="pseudo" placeholder="Entrez votre pseudo" value="">
     <input type="password" name="passwd" placeholder="Entrez votre mot de passe" value="">
-    <input type="submit" name="submit" value="S'enregistrer">
+    <input type="submit" value="Se Connecter">
 </form>
-
 
 <?php
 
-$test = new SignIn();
-$hgcc= $test -> analyseEntree();
+
+$test = new Login();
+$hgcc= $test -> analyseEntreeLogin();
 var_dump($hgcc) ;
-$test -> insert($hgcc);
+$test -> redirection($hgcc);
+var_dump($test);
 
 ?>
