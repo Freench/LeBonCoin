@@ -14,7 +14,7 @@ require_once '../Class/LogIn.php';
 <?php
 
 if(isset($_GET['submit'])){
-	$test = new Login();
+	$test = new LogIn();
 	$hgcc= $test -> analyseEntreeLogin();
 	// var_dump($hgcc) ;
 	$test -> redirection($hgcc);

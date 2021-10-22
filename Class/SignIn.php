@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
     require_once '../Class/Bdd.php';
     class SignIn extends Bdd {
         function analyseEntree(){

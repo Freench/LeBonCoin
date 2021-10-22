@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php 
 require_once '../Class/Bdd.php';
 require_once '../Class/SignIn.php';
 
@@ -21,7 +21,6 @@ if(isset($_GET['submit'])){
             echo "super!!!";
         }
     }
-    // var_dump($hgcc) ;
     $test -> insert($parametreConnection);
 }
 

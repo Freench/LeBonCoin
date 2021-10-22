@@ -1,7 +1,6 @@
 <?php session_start();
     require_once '../Class/Bdd.php';
-    class Login extends Bdd {
-        
+    class LogIn extends Bdd {
         function analyseEntreeLogin(){
             if (isset($_GET['mail']) && isset($_GET['pseudo']) && isset($_GET['passwd']) && (!empty($_GET['pseudo'])) && (!empty($_GET['pseudo'])) && (!empty($_GET['passwd']))) {
                 $mail = strip_tags($_GET['mail']);
