@@ -12,6 +12,36 @@
             }
         }
 
+        function analyseMailBdd($mail){
+            $sql =  "SELECT * FROM utilisateurs WHERE mail_utilisateur = ?";
+            $pdo = $this->connect();
+            $query = $pdo->prepare($sql);
+            // On injecte (terme scientifique) les valeurs
+            $query->execute([$mail]);
+	        $user = $query->fetch(PDO::FETCH_ASSOC);
+            if(!empty($user)){
+                echo 'Désolé, '.$mail.' est déjà utilisé.';
+                return false;
+            }else{
+                return true;
+            }
+        }
+
+        function analysePseudoBdd($pseudo){
+            $sql =  "SELECT * FROM utilisateurs WHERE pseudo_utilisateur = ?";
+            $pdo = $this->connect();
+            $query = $pdo->prepare($sql);
+            // On injecte (terme scientifique) les valeurs
+            $query->execute([$pseudo]);
+	        $user = $query->fetchAll(PDO::FETCH_ASSOC);
+            if(!empty($user)){
+                echo 'Désolé, '.$pseudo.' est déjà utilisé.';
+                return false;
+            }else{
+                return true;
+            }
+        }
+
         function insert($table){
             $sql =  "INSERT INTO utilisateurs (
                 mail_utilisateur,
