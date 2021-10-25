@@ -51,20 +51,41 @@
             return $pdo->lastInsertId();
         }
 
-        function deleteAnnonces($values){
+        function deleteAnnonces($id){
             $requete =  'DELETE FROM annonces WHERE id_annonce = ?';
             $pdo = $this->connect();
             $sql =$pdo ->prepare($requete);
-            $sql -> execute($values);
+            $sql -> execute([$id]);
             return $pdo->lastInsertId();
         }
 
-        function deleteAnnoncesDetails($values){
+        function deleteAnnoncesDetails($id){
             $requete =  'DELETE FROM annoncesdetails WHERE id_annonce = ?';
             $pdo = $this->connect();
             $sql =$pdo ->prepare($requete);
-            $sql -> execute($values);
+            $sql -> execute([$id]);
             return $pdo->lastInsertId();
+        }
+
+        function recherche($inputCategorie, $inputTitre, $inputLocalisation){
+            $value=[];
+            if(!empty($inputCategorie)){
+                $ajout.= ' && id_categorie = ?';
+                array_push($value, $inputCategorie);
+            }
+            if(!empty($inputTitre)){
+                $ajout.=' && titre_annonce = ?';
+                array_push($value, $inputTitre);
+            }
+            if(!empty($inputLocalisation)){
+                $ajout.=' && localisation_annonce = ?';
+                array_push($value, $inputLocalisation);
+            }
+            $requete =  'SELECT FROM annonces WHERE id_annonce = ? '.$ajout.'';
+            $pdo = $this->connect();
+            $sql =$pdo ->prepare($requete);
+            $sql -> execute($values);
+
         }
     }
 ?>
