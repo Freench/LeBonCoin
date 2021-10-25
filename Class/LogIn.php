@@ -16,7 +16,7 @@
                 // On exécute la requête
                 $user = $query->execute();
 	            $user = $query->fetch(PDO::FETCH_ASSOC);
-                $mdpUser = $user['mdp_utilisateur'] ;
+                $mdpUser = $user['mdp_utilisateur'];
                 return [$mail, $pseudo, $passwd, $mdpUser];
             }
         }
