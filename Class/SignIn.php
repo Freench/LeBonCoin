@@ -3,10 +3,6 @@
     class SignIn extends Bdd {
         function __construct(){
              
-            // $this->mail = null;
-            // $this->pseudo = null;
-            // $this->mdp = null;
-            // $this->mdpHash = null;
             $this -> analyseEntree();
             if($this->mail == $this->analyseMailBdd()){
                 if($this->pseudo == $this->analysePseudoBdd()){

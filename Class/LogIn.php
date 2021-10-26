@@ -17,25 +17,29 @@
                 $user = $query->execute();
 	            $user = $query->fetch(PDO::FETCH_ASSOC);
                 $mdpUser = $user['mdp_utilisateur'];
-                return [$mail, $pseudo, $passwd, $mdpUser];
+                // return [$mail, $pseudo, $passwd, $mdpUser];
+                $this->mail = $mail;
+                $this->pseudo = $pseudo;
+                $this->mdp = $passwd;
+                $this->mdpUser = $mdpUser;
+
             }
         }
 
-        function redirection($table){
-            if (!$table[1]) {
+        function redirection(){
+            if (!($this->pseudo)) {
                 echo 'Désolé cet utilisateur n\'existe pas!';
-            } else {
+            }else {
                 $_SESSION['connected'] = true;
                 //On utilise password_verify pour s'assurer que le mot de passe saisie est bien celui que nous avons en crypté dans la base de données
-                if (password_verify($table[2], $table[3] )) {
+                if (password_verify($this->mdp, $this->mdpUser)) {
                     //Si c'est bon nous créons notre variable de session et faisons la redirection.
-                    $_SESSION['nameUser'] = $table[0];
+                    $_SESSION['nameUser'] = $this->mail;
                     header('location: ../index.php');
                 } else {
                     echo 'Le mot de passe est invalide.';
                 }
             }
-
         }
     }
 ?> 

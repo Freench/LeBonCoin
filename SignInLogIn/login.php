@@ -11,6 +11,10 @@ require_once '../Class/LogIn.php';
     <input type="submit" name="submit" value="Se Connecter">
 </form>
 
+<a href="signin.php">
+    <input type="submit" name="submit" value="S'enregistrer">
+</a>
+
 <?php
 
 if(isset($_GET['submit'])){
