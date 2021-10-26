@@ -1,8 +1,15 @@
 <?php session_start();
     require_once '../Class/Bdd.php';
     class LogIn extends Bdd {
+
+        function __construct(){
+            if($this->analyseEntreeLogin()){
+               $this->redirection($this->pseudo); 
+            } 
+        }
+
         function analyseEntreeLogin(){
-            if (isset($_GET['mail']) && isset($_GET['pseudo']) && isset($_GET['passwd']) && (!empty($_GET['pseudo'])) && (!empty($_GET['pseudo'])) && (!empty($_GET['passwd']))) {
+            if (isset($_GET['mail']) && isset($_GET['pseudo']) && isset($_GET['passwd']) && (!empty($_GET['mail'])) && (!empty($_GET['pseudo'])) && (!empty($_GET['passwd']))) {
                 $mail = strip_tags($_GET['mail']);
                 $pseudo = strip_tags($_GET['pseudo']);
                 $passwd = strip_tags($_GET['passwd']);
@@ -16,14 +23,21 @@
                 // On exécute la requête
                 $user = $query->execute();
 	            $user = $query->fetch(PDO::FETCH_ASSOC);
-                $mdpUser = $user['mdp_utilisateur'];
-                // return [$mail, $pseudo, $passwd, $mdpUser];
-                $this->mail = $mail;
-                $this->pseudo = $pseudo;
-                $this->mdp = $passwd;
-                $this->mdpUser = $mdpUser;
-
+                if(!empty($user)){
+                    $mdpUser = $user['mdp_utilisateur'];
+                    $idUser = $user['id_utilisateur'];
+                    $this->mail = $mail;
+                    $this->pseudo = $pseudo;
+                    $this->mdp = $passwd;
+                    $this->mdpUser = $mdpUser;
+                    $this->idUser = $idUser;
+                }else{
+                    echo " Pseudo non reconnu ";
+                    return false;
+                }
+                return true;
             }
+            return false;
         }
 
         function redirection(){
@@ -34,7 +48,8 @@
                 //On utilise password_verify pour s'assurer que le mot de passe saisie est bien celui que nous avons en crypté dans la base de données
                 if (password_verify($this->mdp, $this->mdpUser)) {
                     //Si c'est bon nous créons notre variable de session et faisons la redirection.
-                    $_SESSION['nameUser'] = $this->mail;
+                    $_SESSION['nameUser'] = $this->pseudo;
+                    $_SESSION['idUser'] = $this->idUser;
                     header('location: ../index.php');
                 } else {
                     echo 'Le mot de passe est invalide.';
