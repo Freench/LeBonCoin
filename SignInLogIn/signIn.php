@@ -15,13 +15,6 @@ require_once '../Class/SignIn.php';
 
 if(isset($_GET['submit'])){
     $test = new SignIn();
-    $parametreConnection = $test -> analyseEntree();
-    if($test -> analyseMailBdd($parametreConnection[0])){
-        if($test -> analysePseudoBdd($parametreConnection[1])){
-            echo "super!!!";
-        }
-    }
-    $test -> insert($parametreConnection);
 }
 
 ?>
