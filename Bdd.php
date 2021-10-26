@@ -2,7 +2,7 @@
     class Bdd{
         const SERVERNAME = 'localhost';
         const USERNAME = 'francisp';
-        const DBNAME = 'francisp_LeBonCoin';
+        const DBNAME = 'francisp_LeBonCoinV2';
         const PASSWORD = 'tk3p/odV3HLAig==';
 
         public function connect(){
