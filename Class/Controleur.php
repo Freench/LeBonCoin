@@ -110,11 +110,12 @@
                 $ajout.=' && localisation_annonce = ?';
                 array_push($value, $inputLocalisation);
             }
-            $requete =  'SELECT FROM annonces WHERE id_annonce = ? '.$ajout.'';
+            $requete =  'SELECT * FROM annonces WHERE 1=1 '.$ajout.'';
             $pdo = $this->connect();
             $sql =$pdo ->prepare($requete);
-            $sql -> execute();
-
+            $sql -> execute($value);
+            $resultat = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $resultat;
         }
     }
 ?>
