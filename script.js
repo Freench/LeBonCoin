@@ -73,7 +73,7 @@ function genererCategorieSelelecteur(node, allCategories){
 
 // addCategorieLine(525, "Bonjour", input_categorie);
 
-ajax('index.php', []);
+ajax('test.php', []);
 
 function ajax(url, params){
     var httpRequest;

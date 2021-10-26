@@ -14,9 +14,9 @@
         // $controleurUtilisateur = new ControleurUtilisateurs();
         // $controleurUtilisateur->insert(["a", "a", 2]);
 
-        $controleurAnnonces = new ControleurAnnonces();
-        $id_annonce = $controleurAnnonces->insert(["a", "a","a",10,"a", 1]);
-        $id_annonce =intval( $id_annonce);
+        // $controleurAnnonces = new ControleurAnnonces();
+        // $id_annonce = $controleurAnnonces->insert(["a","a","a",10,"a",1]);
+        // $id_annonce =intval( $id_annonce);
     ?>
     <div>
         <form action="" method="get" id ="recherche_form">
@@ -29,7 +29,6 @@
                 <option value="voiture">Voiture</option>
                 <option value="multimedia">Multimédia</option>
             </select>
-            
             <div id="categorie-section">
                 <div class="display-none">
                     <p>Immobilier</p>

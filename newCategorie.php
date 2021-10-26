@@ -1,13 +1,17 @@
 <?php
-    var_dump($_GET["ordre"]) ;
-    var_dump($_GET["donnee"]) ;
+    /*Si le formulaire à déjà été rempli, on créé un objet ControleurCategorie qui va vérifier et créer les enregistrements dans catégorie
+     et dans donnesspecifiques*/
+    require_once('ControleurCategories.php');
+    if(isset($_GET["new-categorie"])){
+        new ControleurCategories();
+    }
 ?>
 
+<!-- Formulaire pour ajouter une categorie -->
 <form method = "get" action="" id="add-categorie">
     <span>Nouvelle catégorie :</span> <input type="text" placeholder="Nouvelle Catégorie" value="" name="nom-categorie"> </br>
     <span>Données Spécifiques à la catégorie :</span> </br>
-    <!-- <span>Numéro d'ordre :</span> <input type="number" placeholder="N°" value="" name="ordre-1">
-    <span>Nom donnée :</span> <input type="text" placeholder="Nom critère" value="" name="donne-1"> -->
+    <!-- Les lignes du formulaire est généré par newCategorie.js avec le btn-new-line. -->
 </form>
 <button id=btn-new-line>Nouveau critère</button>
 <input type="submit" value="Valider" name="new-categorie" form="add-categorie">
