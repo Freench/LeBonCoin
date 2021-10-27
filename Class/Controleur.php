@@ -103,14 +103,14 @@
                 array_push($value, $inputCategorie);
             }
             if(!empty($inputTitre)){
-                $ajout.=' && titre_annonce = ?';
+                $ajout.=' && titre_annonce LIKE %?%';
                 array_push($value, $inputTitre);
             }
             if(!empty($inputLocalisation)){
-                $ajout.=' && localisation_annonce = ?';
+                $ajout.=' && localisation_annonce LIKE %?%';
                 array_push($value, $inputLocalisation);
             }
-            $requete =  'SELECT * FROM annonces WHERE 1=1 '.$ajout.'';
+            $requete =  'SELECT * FROM annonces WHERE 1=1 '.$ajout.' ';
             $pdo = $this->connect();
             $sql =$pdo ->prepare($requete);
             $sql -> execute($value);
