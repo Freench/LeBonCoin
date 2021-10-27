@@ -25,8 +25,6 @@ if (!isset($_SESSION['connected'])) {
 
 
 </html>
-<<<<<<< HEAD
-=======
 
     <?php
         // $controleurAnnonces = new ControleurAnnonces();
@@ -128,4 +126,3 @@ if (!isset($_SESSION['connected'])) {
     </div> -->
 </body>
 </html>
->>>>>>> 862707cd4b372ed26e4bc26bdc3fb4467033b9fd

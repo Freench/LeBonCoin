@@ -32,7 +32,7 @@
                     $this->mdpUser = $mdpUser;
                     $this->idUser = $idUser;
                 }else{
-                    echo " Pseudo non reconnu ";
+                    echo "<div class=".'affichageEcho'.">Pseudo non reconnu</div>";
                     return false;
                 }
                 return true;
@@ -42,7 +42,7 @@
 
         function redirection(){
             if (!($this->pseudo)) {
-                echo 'Désolé cet utilisateur n\'existe pas!';
+                echo "<div class=".'affichageEcho'.">Désolé cet utilisateur n\'existe pas!</div>";
             }else {
                 $_SESSION['connected'] = true;
                 //On utilise password_verify pour s'assurer que le mot de passe saisie est bien celui que nous avons en crypté dans la base de données
@@ -52,7 +52,7 @@
                     $_SESSION['idUser'] = $this->idUser;
                     header('location: ../index.php');
                 } else {
-                    echo 'Le mot de passe est invalide.';
+                    echo "<div class=".'affichageEcho'.">Le mot de passe est invalide.</div>";
                 }
             }
         }

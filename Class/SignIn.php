@@ -71,7 +71,7 @@
                 }
             }
             if(!$asSpecial){
-                echo " Le mot de passe doit contenir au moins un caractère spécial. ";
+                echo "<div class=".'affichageEcho'.">Le mot de passe doit contenir au moins un caractère spécial.</div>";
                 return false;
             }
 
@@ -86,11 +86,11 @@
                 }
             }
             if(!$minuscule){
-                echo " Le mot de passe doit contenir au moins un caractère minuscule. ";
+                echo "<div class=".'affichageEcho'.">Le mot de passe doit contenir au moins un caractère minuscule.</div> ";
                 return false;
             }
             if(!$majuscule){
-                echo " Le mot de passe doit contenir au moins un caractère majuscule. ";
+                echo "<div class=".'affichageEcho'.">Le mot de passe doit contenir au moins un caractère majuscule.</div> ";
                 return false;
             }
 
@@ -101,13 +101,13 @@
                 }
             }
             if(!$asChiffre){
-                echo " Le mot de passe doit contenir au moins un chiffre. ";
+                echo "<div class=".'affichageEcho'.">Le mot de passe doit contenir au moins un chiffre.</div> ";
                 return false;
             }
 
             $longeur = strlen($this->mdp);
             if(!($longeur >= 8 && $longeur <= 50)){
-                echo "Le mot de passe doit comprendre : entre 8 et 50 caractères ";
+                echo "<div class=".'affichageEcho'.">Le mot de passe doit comprendre : entre 8 et 50 caractères</div>";
                 return false;
             }
 
