@@ -1,24 +1,37 @@
+<?php 
+require_once 'Class/ControleurAnnonces.php';
+
+if (!isset($_SESSION['connected'])) {
+    header('Location: SignInLogIn/login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <?php
-        require_once("ControleurAnnonces.php");
-        require_once("ControleurUtilisateurs.php");
-        // $controleurUtilisateur = new ControleurUtilisateurs();
-        // $controleurUtilisateur->insert(["a", "a", 2]);
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="Css/style.css">
+    </head>
 
+    <body>
+        <form action="SignInLogIn/logout.php" method="POST">
+            <input type="submit" value="Déconnexion">
+        </form>
+    </body>
+
+
+
+
+</html>
+
+    <?php
         // $controleurAnnonces = new ControleurAnnonces();
         // $id_annonce = $controleurAnnonces->insert(["a","a","a",10,"a",1]);
         // $id_annonce =intval( $id_annonce);
     ?>
-    <div>
+    <!-- <div>
         <form action="" method="get" id ="recherche_form">
             <input type="text" placeholder="Titre de l'annonce" value="" name="titre-annonce">
             <input type="text" placeholder="Descritpion" value="" name="description">
@@ -110,8 +123,6 @@
             </div>
             <input type="submit"  value="Poster l'annonce" name="">
         </form>
-    </div>
-    
-    <script src="script.js"></script>
+    </div> -->
 </body>
 </html>

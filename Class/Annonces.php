@@ -10,8 +10,6 @@
             $this->prix = $prix;
             $this->localisation = $localisation;
             $this->idUtilisateur = $idUtilisateur;
-        }
-        
+        }  
     }
-
 ?>
