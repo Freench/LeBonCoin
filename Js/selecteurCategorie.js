@@ -35,15 +35,15 @@ let categorie_section = document.querySelectorAll('#categorie-section div')
 //     }
 // });
 
-function voitureSelected(){
-    return '<div><p>Voiture</p><input type="text"placeholder="Marque" value="" name="marque"><input type="text" placeholder="Modèle" value="" name="modele"><input type="number" placeholder="Kilométrage" value="" name="kilométrage"><!-- <input list="carburant" placeholder="Carburant" name="carburant"> --><select id="carburant" name="carburant"><option value="essence">Essence</option><option value="diesel">Diesel</option><option value="electrique">Électrique</option></select><!-- <input list="btvitesse" placeholder="Boite de Vitesse" name="btvitesse"> --><select id="btvitesse" name="btvitesse"><option value="manuelle">Manuelle</option><option value="automatique">Automatique</option></select><input type="text" placeholder="Couleur" value="" name="couleur"><input type="number" placeholder="Nombre de porte" value="" name="nbporte"><input type="number" placeholder="Puissance" value="" name="puissance"><input type="number" placeholder="Nombre de place" value="" name="nbplace"></div>'
-}
-function immobilierSelected(){
-    return '<div class="display-none"><p>Immobilier</p><select id="typedebien" name="typedebien"><option value="maison">Maison</option><option value="appartement">Appartement</option></select><input type="number" placeholder="Surface" value="" name="surface"><input type="number" placeholder="Nombre de pièce" value="" name="pieces"></div>'
-}
-function multimediaSelected(){
-    return '<div class="display-none"><p>Multimedia</p><select id="categorie2" name="categorie2"><option value="3">Informatique</option><option value="4">Console et jeux vidéo</option><option value="5">Téléphonie</option></select></div>'
-}
+// function voitureSelected(){
+//     return '<div><p>Voiture</p><input type="text"placeholder="Marque" value="" name="marque"><input type="text" placeholder="Modèle" value="" name="modele"><input type="number" placeholder="Kilométrage" value="" name="kilométrage"><!-- <input list="carburant" placeholder="Carburant" name="carburant"> --><select id="carburant" name="carburant"><option value="essence">Essence</option><option value="diesel">Diesel</option><option value="electrique">Électrique</option></select><!-- <input list="btvitesse" placeholder="Boite de Vitesse" name="btvitesse"> --><select id="btvitesse" name="btvitesse"><option value="manuelle">Manuelle</option><option value="automatique">Automatique</option></select><input type="text" placeholder="Couleur" value="" name="couleur"><input type="number" placeholder="Nombre de porte" value="" name="nbporte"><input type="number" placeholder="Puissance" value="" name="puissance"><input type="number" placeholder="Nombre de place" value="" name="nbplace"></div>'
+// }
+// function immobilierSelected(){
+//     return '<div class="display-none"><p>Immobilier</p><select id="typedebien" name="typedebien"><option value="maison">Maison</option><option value="appartement">Appartement</option></select><input type="number" placeholder="Surface" value="" name="surface"><input type="number" placeholder="Nombre de pièce" value="" name="pieces"></div>'
+// }
+// function multimediaSelected(){
+//     return '<div class="display-none"><p>Multimedia</p><select id="categorie2" name="categorie2"><option value="3">Informatique</option><option value="4">Console et jeux vidéo</option><option value="5">Téléphonie</option></select></div>'
+// }
 
 function categorieLine(id, value){
     option = document.createElement('option');
@@ -53,7 +53,6 @@ function categorieLine(id, value){
 }
 
 function getAllCategories(){
-
     return allCategories;
 }
 

@@ -1,6 +1,6 @@
 <?php session_start();
     require_once 'Annonces.php';
-    class Controleur extends Bdd{
+    class ControleurAnnonces extends Bdd{
 
         function __construct(){
             if($this->analyseEntreeAnnonce()){ 
