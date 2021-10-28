@@ -1,7 +1,17 @@
-<form action="" method="GET">
+<?php 
+require_once '../Class/Bdd.php';
+require_once '../Class/ControleurAnnonces.php';
+
+if (!isset($_SESSION['connected'])) {
+    header('Location: ../SignInLogIn/login.php');
+}
+?>
+
+
+<form action="" method="GET" enctype="multipart/form-data">
         <input type="text"  name="titreAnnonce" placeholder="Titre de l'annonce" required>
         <input type="number"  name="prixAnnonce" placeholder="Prix de l'article" required>
-        <input type="text" name="photoAnnonce" placeholder="Photo de l'annonce" required>
+        <input type="file" name="photoAnnonce" accept=".png,.pdf,.jpg" placeholder="Photo de l'annonce" size=50 required>
         <input type="text" name="localisationAnnonce" placeholder="Localisation" required>
         <input type="text" name="descriptionAnnonce" placeholder="Description" required>
         <input type="number" name="categorieAnnonce" placeholder="Categorie" required>
@@ -9,10 +19,11 @@
 </form>
 <script src="Js/selecteurCategorie.js"></script>
 
-    <?php
 
 
-    if(isset($_GET['submit'])){
-        $controleur = new ControleurAnnonces();
-    }
-    ?>
+
+<?php
+if(isset($_GET['submit'])){
+    $controleur = new ControleurAnnonces();
+}
+?>
