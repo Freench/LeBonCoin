@@ -1,3 +1,8 @@
 .display-none{
     display: none;
 }
+
+.section-recherche{
+    background-color: red;
+    border-radius: 30px;
+}
