@@ -1,6 +1,6 @@
 <?php 
 require_once 'Class/ControleurAnnonces.php';
-
+require_once 'Class/Vue.php';
 if (!isset($_SESSION['connected'])) {
     header('Location: SignInLogIn/login.php');
 }
@@ -13,6 +13,8 @@ if (!isset($_SESSION['connected'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" href="Css/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"   integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
     </head>
 
     <body>
@@ -21,12 +23,17 @@ if (!isset($_SESSION['connected'])) {
         </form>
     </body>
 
-
-
+    
 
 </html>
 
     <?php
+    $a = ["id_annonce" => 1,"titre_annonce" => "bonjour","id_categorie" =>1,"description_annonce" => "alaedin","prix_annonce" => 500000,"localisation_annonce" => "champagnole","id_utilisateur" => 1];
+
+$tableau = [$a,$a,$a];
+
+    $vue = new Vue();
+    $vue -> afficherToutesCartes($tableau);
         // $controleurAnnonces = new ControleurAnnonces();
         // $id_annonce = $controleurAnnonces->insert(["a","a","a",10,"a",1]);
         // $id_annonce =intval( $id_annonce);

@@ -100,7 +100,7 @@
             $value=[];
             if(!empty($inputCategorie)){
                 $ajout.= ' && id_categorie = ?';
-                array_push($value, $inputCategorie);
+                array_push($value, '%'.$inputCategorie.'%');
             }
             if(!empty($inputTitre)){
                 $ajout.=' && titre_annonce LIKE ?';
@@ -117,5 +117,15 @@
             $resultat = $sql->fetchAll(PDO::FETCH_ASSOC);
             return $resultat;
         }
+
+        // function carte($titre, $categorie, $description, $prix, $localisation){
+            // $this->titre = $titre;
+            // $this->categorie = $categorie;
+            // $this->description = $description;
+            // $this->prix = $prix;
+            // $this->localisation = $localisation;
+            // $tableauCarte = [$this->titre,$this->categorie,$this->description,$this->prix,$this->localisation];
+            // return $tableauCarte;
+        // }
     }
 ?>

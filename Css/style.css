@@ -73,7 +73,12 @@ form{
     display: block;
     margin: 10px 0 0 auto;
 }
+
 .affichageEcho{
     text-align: center;
     margin-top: 10px;
+}
+
+.carte{
+    margin: 0 auto 0 auto;
 }
