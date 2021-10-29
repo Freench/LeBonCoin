@@ -34,14 +34,18 @@ require_once "Annonces.php";
         }
 
         function recupImage(){
-            $requete = 'SELECT photo FROM photosannonces WHERE id_annonce =44';
+            $requete = 'SELECT photo FROM photosannonces WHERE id_annonce =58';
             $pdo = $this->connect();
             $sql =$pdo ->prepare($requete);
             $sql -> execute();
             $SelectImg = $sql->fetch(PDO::FETCH_ASSOC);
-            // header("Content-type: image/png");
+            //header("Content-type: image/png");
             echo $SelectImg['photo'];
-            // return $SelectImg['photo'];
+            //echo '<img src="'.$SelectImg['photo'].'" style="width:128px;height:128px">';
         }
     }
 ?>
+
+
+
+

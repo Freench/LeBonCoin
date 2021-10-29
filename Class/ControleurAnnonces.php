@@ -10,25 +10,25 @@
 
         }
         
-        function insertPhoto($newIdAnnonce){
-            if(isset($_GET['photoAnnonce'])){
-                $requete =  'INSERT INTO photosannonces (
-                    photo,
-                    id_annonce) VALUE (?,?)';
-                $pdo = $this->connect();
-                $sql =$pdo ->prepare($requete);
-                $sql -> execute([$_GET['photoAnnonce'],$newIdAnnonce]);
-            }
-        }
+        // function insertPhoto($newIdAnnonce){
+        //     if(isset($_FILES['photoAnnonce'])){
+        //         $requete =  'INSERT INTO photosannonces (
+        //             photo,
+        //             id_annonce) VALUE (?,?)';
+        //         $pdo = $this->connect();
+        //         $sql =$pdo ->prepare($requete);
+        //         $sql -> execute([$_POST['photoAnnonce'],$newIdAnnonce]);
+        //     }
+        // }
 
-
+       
         function analyseEntreeAnnonce(){
-            if (isset($_GET['titreAnnonce']) && isset($_GET['prixAnnonce']) && isset($_GET['photoAnnonce']) && isset($_GET['localisationAnnonce']) && isset($_GET['descriptionAnnonce']) && isset($_GET['categorieAnnonce']) && (!empty($_GET['categorieAnnonce'])) && (!empty($_GET['titreAnnonce'])) && (!empty($_GET['descriptionAnnonce'])) && (!empty($_GET['prixAnnonce'])) && (!empty($_GET['photoAnnonce'])) && (!empty($_GET['localisationAnnonce']))) {
-                $titre = strip_tags($_GET['titreAnnonce']);
-                $prix = strip_tags($_GET['prixAnnonce']);
-                $localisation = strip_tags($_GET['localisationAnnonce']);
-                $description = strip_tags($_GET['descriptionAnnonce']);
-                $categorie = strip_tags($_GET['categorieAnnonce']);
+            if (isset($_POST['titreAnnonce']) && isset($_POST['prixAnnonce']) && isset($_FILES['photoAnnonce']) && isset($_POST['localisationAnnonce']) && isset($_POST['descriptionAnnonce']) && isset($_POST['categorieAnnonce']) && (!empty($_POST['categorieAnnonce'])) && (!empty($_POST['titreAnnonce'])) && (!empty($_POST['descriptionAnnonce'])) && (!empty($_POST['prixAnnonce'])) && (!empty($_FILES['photoAnnonce'])) && (!empty($_POST['localisationAnnonce']))) {
+                $titre = strip_tags($_POST['titreAnnonce']);
+                $prix = strip_tags($_POST['prixAnnonce']);
+                $localisation = strip_tags($_POST['localisationAnnonce']);
+                $description = strip_tags($_POST['descriptionAnnonce']);
+                $categorie = strip_tags($_POST['categorieAnnonce']);
                 $this->titre = $titre;
                 $this->prix = $prix;
                 $this->localisation = $localisation;
@@ -49,11 +49,41 @@
                 id_utilisateur) VALUE (?,?,?,?,?,?)';
             $pdo = $this->connect();
             $sql = $pdo ->prepare($requete);
-            $sql -> execute([$this->titre, $this->prix, $this->localisation, $this->description,10,$this->idUtilisateur]);
-            return $pdo->lastInsertId(); 
+            $sql -> execute([$this->titre, $this->prix, $this->localisation, $this->description,10,$this->idUtilisateur]); 
+            return $pdo->lastInsertId();
         }
 
-        function updateAnnonces(){
+        function insertPhoto($newIdAnnonce){
+            $tmpName = $_FILES['photoAnnonce']['tmp_name'];
+            $name = $_FILES['photoAnnonce']['name'];
+            $size = $_FILES['photoAnnonce']['size'];
+            $error = $_FILES['photoAnnonce']['error'];      
+            $tabExtension = explode('.', $name);
+            $extension = strtolower(end($tabExtension));
+            $extensions = ['jpg', 'png', 'jpeg', 'gif'];
+            $maxSize = 400000;
+        
+            if(in_array($extension, $extensions) && $size <= $maxSize && $error == 0){
+                $uniqueName = uniqid('', true);
+                //uniqid génère quelque chose comme ca : 5f586bf96dcd38.73540086
+                $file = $uniqueName.".".$extension;
+                //$file = 5f586bf96dcd38.73540086.jpg
+                move_uploaded_file($tmpName, '../upload/'.$file);
+                $requete =  'INSERT INTO photosannonces (
+                                photo,
+                                id_annonce) VALUE (?,?)';
+                $pdo = $this->connect();
+                $sql =$pdo ->prepare($requete);
+                $sql -> execute([$file,$newIdAnnonce]);            
+                echo "Image enregistrée";
+            }
+            else{
+                echo "Une erreur est survenue";
+            }
+        }
+
+        
+        function updateAnnonces($id){
             $requete =  "UPDATE annonces SET
                 titre_annonce = ?,
                 prix_annonce = ?,
@@ -64,7 +94,7 @@
                 WHERE id_annonce =  ?";//VALEURDANSLEBOUTTON
             $pdo = $this->connect();
             $sql =$pdo ->prepare($requete);
-            $sql -> execute([$this->titre,$this->prix,$this->localisation,$this->description,$this->idCategorie,$this->idUtilisateur]);
+            $sql -> execute([$this->titre,$this->prix,$this->localisation,$this->description,$this->idCategorie,$id]);
         }
 
         function deleteAnnonces($id){

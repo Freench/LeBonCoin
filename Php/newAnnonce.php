@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once '../Class/Bdd.php';
 require_once '../Class/ControleurAnnonces.php';
 
@@ -8,7 +8,7 @@ if (!isset($_SESSION['connected'])) {
 ?>
 
 
-<form action="" method="GET" enctype="multipart/form-data">
+<form action="" method="POST" enctype="multipart/form-data">
         <input type="text"  name="titreAnnonce" placeholder="Titre de l'annonce" required>
         <input type="number"  name="prixAnnonce" placeholder="Prix de l'article" required>
         <input type="file" name="photoAnnonce" accept=".png,.pdf,.jpg" placeholder="Photo de l'annonce" size=50 required>
@@ -23,7 +23,9 @@ if (!isset($_SESSION['connected'])) {
 
 
 <?php
-if(isset($_GET['submit'])){
+if(isset($_POST['submit'])){
+    echo "nexControlour";
     $controleur = new ControleurAnnonces();
+    
 }
 ?>
