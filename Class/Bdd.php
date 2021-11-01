@@ -9,10 +9,10 @@
             //On établit la connexion
             try
             {
-                $bdd = new PDO('mysql:host='.$this::SERVERNAME.';dbname='.$this::DBNAME, $this::USERNAME, $this::PASSWORD);
+                $db = new PDO('mysql:host='.$this::SERVERNAME.';dbname='.$this::DBNAME, $this::USERNAME, $this::PASSWORD);
                 //On définit le mode d'erreur de PDO sur Exception
-                $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                return $bdd;
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                return $db;
             }
             catch(PDOException $e){
                 echo "Erreur : " . $e->getMessage();

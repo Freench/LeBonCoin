@@ -1,7 +1,7 @@
 <?php
     require_once('../Class/Bdd.php');
-    $id_categorie = $_GET['params'];
-    $requete = 'SELECT * FROM donnesspecifiques WHERE id_categories = '.$id_categorie;
+    $id_categorie = $_POST['params'];
+    $requete = 'SELECT * FROM donnesspecifiques WHERE id_categorie = '.$id_categorie;
 
     $db = new Bdd();
     $bdd = $db->connect();

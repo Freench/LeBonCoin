@@ -9,12 +9,13 @@
         <input type="text" name="localisationAnnonce" placeholder="Localisation" required>
         <input type="text" name="descriptionAnnonce" placeholder="Description" required>
         <div id="categorie"></div>
-        <input type="number" name="categorieAnnonce" placeholder="Categorie" required>
+        <div id="specificites-section"></div>
+        <!-- <input type="number" name="categorieAnnonce" placeholder="Categorie" required> -->
         <input type="submit" name="submit" value="OK">
 </form>
-<script type="module" src="../Ajax/ajax.js"></script>
-<script type="module" src="../Js/selecteurCategorie.js"></script>
-<script type="module" src="../Js/selectSpecificiteFromCategorie.js"></script>
+
+<script type="module" src="../Js/script.js"></script>
+
 
     <?php
     if(isset($_GET['submit'])){
