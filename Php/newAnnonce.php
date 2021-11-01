@@ -24,7 +24,6 @@ if (!isset($_SESSION['connected'])) {
 
 <?php
 if(isset($_POST['submit'])){
-    echo "nexControlour";
     $controleur = new ControleurAnnonces();
     
 }

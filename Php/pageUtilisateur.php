@@ -13,6 +13,7 @@
     <body>
         <?php session_start();
     require_once '../Class/Vue.php';
+    require_once '../Class/ControleurAnnonces.php';
         if (!isset($_SESSION['connected'])) {
             header('Location: ../SignInLogIn/login.php');
         }
@@ -22,6 +23,7 @@
     $idPageUtilisateur = $_GET['idPageUtilisateur'];
     $vue = new Vue();
     $vue -> afficherToutesCartes($tableau, $idPageUtilisateur);
+    $controleur = new ControleurAnnonces();
         ?>
     </body>
 </html>

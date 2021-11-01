@@ -4,13 +4,13 @@ require_once "Annonces.php";
         function afficherToutesCartes($tableau,$idPageUtilisateur){
             foreach($tableau as $row){
                 $annonce = new Annonces($row);
-                $this->afficherUneCarte($annonce,$idPageUtilisateur);
+                $this->afficherUneCarte($annonce,$idPageUtilisateur,$annonce->idAnnonce);
                 
                 // var_dump($this->recupImage($idPageUtilisateur));
             }
         }
 
-        function afficherUneCarte($annonce,$idPageUtilisateur){
+        function afficherUneCarte($annonce, $idPageUtilisateur, $idAnnonce){
             echo '<div class="container">';
                 echo '<div class="card">';
                     echo ' <div class="card-body row">';
@@ -25,7 +25,7 @@ require_once "Annonces.php";
                         echo '<div class="col-4 d-flex bouttonAnnonce">';
                             echo '<a href="#" class="btn btn-primary">Voir l\'annonce</a>';
                             if($_SESSION['idUser'] == $idPageUtilisateur){
-                                echo '<button name="Suppr" class="btn btn-danger">Supprimer</button>';
+                                echo '<form method="POST" action=""><button name="Suppr" class="btn btn-danger value='.$idAnnonce.' ">Supprimer</button></form>';
                             }
                         echo '</div>';
                     echo '</div>';

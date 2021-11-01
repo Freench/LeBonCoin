@@ -1,4 +1,4 @@
-<?php session_start();
+<?php //session_start();
     require_once 'Annonces.php';
     class ControleurAnnonces extends Bdd{
 
@@ -6,22 +6,18 @@
             if($this->analyseEntreeAnnonce()){ 
                 $newIdAnnonce = $this->insertAnnonces();
                 $this->insertPhoto($newIdAnnonce);
+
             }
 
+            if(isset($_POST['Suppr'])){
+                echo 'gluman '.$_POST['Suppr'].'';
+                $this->deleteAnnonces($_POST['Suppr']);
+            }
+            if(isset($_GET['idPageUtilisateur'])){
+                $this->selectAnnoncesByIdUtilisateur($_GET['idPageUtilisateur']);
+            }
         }
-        
-        // function insertPhoto($newIdAnnonce){
-        //     if(isset($_FILES['photoAnnonce'])){
-        //         $requete =  'INSERT INTO photosannonces (
-        //             photo,
-        //             id_annonce) VALUE (?,?)';
-        //         $pdo = $this->connect();
-        //         $sql =$pdo ->prepare($requete);
-        //         $sql -> execute([$_POST['photoAnnonce'],$newIdAnnonce]);
-        //     }
-        // }
 
-       
         function analyseEntreeAnnonce(){
             if (isset($_POST['titreAnnonce']) && isset($_POST['prixAnnonce']) && isset($_FILES['photoAnnonce']) && isset($_POST['localisationAnnonce']) && isset($_POST['descriptionAnnonce']) && isset($_POST['categorieAnnonce']) && (!empty($_POST['categorieAnnonce'])) && (!empty($_POST['titreAnnonce'])) && (!empty($_POST['descriptionAnnonce'])) && (!empty($_POST['prixAnnonce'])) && (!empty($_FILES['photoAnnonce'])) && (!empty($_POST['localisationAnnonce']))) {
                 $titre = strip_tags($_POST['titreAnnonce']);
@@ -51,6 +47,13 @@
             $sql = $pdo ->prepare($requete);
             $sql -> execute([$this->titre, $this->prix, $this->localisation, $this->description,10,$this->idUtilisateur]); 
             return $pdo->lastInsertId();
+        }
+
+        function selectAnnoncesByIdUtilisateur($id){
+            $requete = 'SELECT * FROM annonces WHERE id_utilisateur = ?';
+            $pdo = $this->connect();
+            $sql = $pdo->prepare($requete);
+            $sql-> execute([$id]);
         }
 
         function insertPhoto($newIdAnnonce){
@@ -98,12 +101,18 @@
         }
 
         function deleteAnnonces($id){
-            $requete =  'DELETE FROM annonces WHERE id_annonce = ?';//VALEURDANSLEBOUTTON
-            $pdo = $this->connect();
-            $sql =$pdo ->prepare($requete);
-            $sql -> execute([$id]);
-            return true;
+            if (isset($_POST['Suppr'])){
+                echo"on supprime $id";
+                $requete =  'DELETE FROM annonces WHERE id_annonce = ? ';//VALEURDANSLEBOUTTON
+                $pdo = $this->connect();
+                $sql =$pdo ->prepare($requete);
+                $sql -> execute([$id]);
+                return true;
+            }
         }
+
+        
+        
 
         function insertAnnoncesDetails($values){
             $requete =  'INSERT INTO annoncesdetails (
