@@ -1,10 +1,24 @@
-<?php 
+<?php session_start();
 require_once 'Class/ControleurAnnonces.php';
-
+require_once 'Class/Vue.php';
 if (!isset($_SESSION['connected'])) {
     header('Location: SignInLogIn/login.php');
 }
 ?>
+<<<<<<< HEAD
+=======
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"   integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="Css/style.css">    
+    </head>
+>>>>>>> alaedin
 
         <?php 
             include('Php/nav.php');
@@ -13,16 +27,11 @@ if (!isset($_SESSION['connected'])) {
         
     
 
-
-
+    
 
 </html>
 
-    <?php
-        // $controleurAnnonces = new ControleurAnnonces();
-        // $id_annonce = $controleurAnnonces->insert(["a","a","a",10,"a",1]);
-        // $id_annonce =intval( $id_annonce);
-    ?>
+    
     <!-- <div>
         <form action="" method="get" id ="recherche_form">
             <input type="text" placeholder="Titre de l'annonce" value="" name="titre-annonce">
