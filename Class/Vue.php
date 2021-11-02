@@ -45,7 +45,3 @@ require_once "Annonces.php";
         }
     }
 ?>
-
-
-
-
