@@ -2,7 +2,11 @@
     // include('header.php');
     include('nav.php');
 ?>
+<<<<<<< HEAD
 <form action="" method="GET">
+=======
+
+>>>>>>> Francis
 <?php session_start();
 require_once '../Class/Bdd.php';
 require_once '../Class/ControleurAnnonces.php';
@@ -21,14 +25,15 @@ if (!isset($_SESSION['connected'])) {
         <div id="categorie"></div>
         <div id="specificites-section"></div>
         <!-- <input type="number" name="categorieAnnonce" placeholder="Categorie" required> -->
-        <input type="submit" name="submit" value="OK">
+        <input type="submit" name="submit" value="Valider">
 </form>
 
 <script type="module" src="../Js/script.js"></script>
 
 
     <?php
-    if(isset($_GET['submit'])){
+    if(isset($_POST['submit'])){
+        echo "Ta ****";
         $controleur = new ControleurAnnonces();
     }
     ?>

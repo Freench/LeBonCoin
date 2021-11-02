@@ -17,4 +17,4 @@
 <input type="submit" value="Valider" name="new-categorie" form="add-categorie">
 
 
-<script src="newCategorie.js"></script>
+<script src="../Js/script.js"></script>
