@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 <?php
     // include('header.php');
     include('nav.php');
 ?>
-<form action="" method="GET">
-=======
+
 <?php session_start();
 require_once '../Class/Bdd.php';
 require_once '../Class/ControleurAnnonces.php';
@@ -16,7 +14,6 @@ if (!isset($_SESSION['connected'])) {
 
 
 <form action="" method="POST" enctype="multipart/form-data">
->>>>>>> alaedin
         <input type="text"  name="titreAnnonce" placeholder="Titre de l'annonce" required>
         <input type="number"  name="prixAnnonce" placeholder="Prix de l'article" required>
         <input type="file" name="photoAnnonce" accept=".png,.pdf,.jpg" placeholder="Photo de l'annonce" size=50 required>
@@ -25,15 +22,15 @@ if (!isset($_SESSION['connected'])) {
         <div id="categorie"></div>
         <div id="specificites-section"></div>
         <!-- <input type="number" name="categorieAnnonce" placeholder="Categorie" required> -->
-        <input type="submit" name="submit" value="OK">
+        <input type="submit" name="submit" value="Valider">
 </form>
 
-<<<<<<< HEAD
 <script type="module" src="../Js/script.js"></script>
 
 
     <?php
-    if(isset($_GET['submit'])){
+    if(isset($_POST['submit'])){
+        echo "Ta ****";
         $controleur = new ControleurAnnonces();
     }
     ?>
@@ -43,14 +40,3 @@ if (!isset($_SESSION['connected'])) {
 <?php
     include('footer.php');
 ?>
-=======
-
-
-
-<?php
-if(isset($_POST['submit'])){
-    $controleur = new ControleurAnnonces();
-    
-}
-?>
->>>>>>> alaedin

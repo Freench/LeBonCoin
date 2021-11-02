@@ -86,7 +86,7 @@ ajax('../Ajax/selectAllCategories.php', [], genererCategorieSelelecteur, documen
 function genererCategorieSelelecteur(node, allCategories){
     let selecteur = document.createElement('select');
     selecteur.id = "selector";
-    selecteur.name = "categorie";
+    selecteur.name = "categorieAnnonce";
     selecteur.innerText = "Catégorie";
 
     for(let cat of allCategories){
@@ -126,7 +126,7 @@ function genereFormSpecificite(node , specificites){
     for(let specificite of specificites){
         let input = document.createElement('input');
         input.placeholder = specificite['nom_data'];
-        input.name = specificite['nom_data'];
+        input.name = "donnee[]";
         node.appendChild(input)
     }
 }

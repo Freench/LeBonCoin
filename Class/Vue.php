@@ -5,7 +5,6 @@ require_once "Annonces.php";
             foreach($tableau as $row){
                 $annonce = new Annonces($row);
                 $this->afficherUneCarte($annonce,$idPageUtilisateur,$annonce->idAnnonce);
-                
                 // var_dump($this->recupImage($idPageUtilisateur));
             }
         }

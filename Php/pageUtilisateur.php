@@ -18,6 +18,8 @@
                 header('Location: ../SignInLogIn/login.php');
             }
             $idPageUtilisateur = $_GET['idPageUtilisateur'];
+            $user = new LogIn();
+            // $user->sele
             $vue = new Vue();
             $controleur = new ControleurAnnonces();
             $vue -> afficherToutesCartes($controleur -> selectAnnoncesByIdUtilisateur($idPageUtilisateur), $idPageUtilisateur);
