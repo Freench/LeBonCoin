@@ -2,15 +2,15 @@
     require_once('Bdd.php');
     class ControleurCategories extends Bdd{
         function __construct(){
-            $this->nom_categorie = null;
-            $this->listSpecOrdre = null;
-            $this->listSpecName = null;
-            if($this->verification_categorie()){
-                if($this->verification_specificite()){
-                    $newIdCategorie = $this->insertCategorie();
-                    $this->insertAllSpecificite($newIdCategorie);
-                }
-            }
+            // $this->nom_categorie = null;
+            // $this->listSpecOrdre = null;
+            // $this->listSpecName = null;
+            // if($this->verification_categorie()){
+            //     if($this->verification_specificite()){
+            //         $newIdCategorie = $this->insertCategorie();
+            //         $this->insertAllSpecificite($newIdCategorie);
+            //     }
+            // }
         }
 
         function verification_categorie(){
@@ -60,6 +60,16 @@
                 $sql = $pdo->prepare($requete);
                 $sql->execute([$this->listSpecOrdre[$i], $this->listSpecName[$i], $idCategorie]);
             }
+        }
+
+
+        function selectSpecificiteesByCategorie($id){
+            $requete = 'SELECT * FROM donnesspecifiques WHERE id_categorie = ?';
+            $pdo = $this->connect();
+            $sql = $pdo->prepare($requete);
+            $sql-> execute([$id]);
+            $result = $sql -> fetchAll();
+            return $result;
         }
 }
 

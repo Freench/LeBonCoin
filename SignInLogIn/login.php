@@ -42,7 +42,11 @@ require_once '../Class/LogIn.php';
 
         <?php
             if(isset($_GET['submit'])){
-                $test = new LogIn();
+                $login = new LogIn();
+                if($login->analyseEntreeLogin()){
+                    $login->redirection($login->pseudo); 
+                 } 
+
             }
         ?>
 

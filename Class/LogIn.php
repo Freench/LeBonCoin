@@ -2,12 +2,6 @@
     require_once '../Class/Bdd.php';
     class LogIn extends Bdd {
 
-        function __construct(){
-            if($this->analyseEntreeLogin()){
-               $this->redirection($this->pseudo); 
-            } 
-        }
-
         function analyseEntreeLogin(){
             if (isset($_GET['mail']) && isset($_GET['pseudo']) && isset($_GET['passwd']) && (!empty($_GET['mail'])) && (!empty($_GET['pseudo'])) && (!empty($_GET['passwd']))) {
                 $mail = strip_tags($_GET['mail']);
@@ -55,6 +49,15 @@
                     echo "<div class=".'affichageEcho'.">Le mot de passe est invalide.</div>";
                 }
             }
+        }
+
+        function selectUserById($id){
+            $requete = 'SELECT * FROM utilisateurs WHERE id_utilisateur = ?';
+            $pdo = $this->connect();
+            $sql = $pdo->prepare($requete);
+            $sql-> execute([$id]);
+            $result = $sql -> fetch();
+            return $result;
         }
     }
 ?>

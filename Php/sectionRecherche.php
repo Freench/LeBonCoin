@@ -1,10 +1,10 @@
 <?php
-
     if(isset($_GET['submit'])){
         if($_GET['submit'] == 'rechercher'){
             $controleur = new ControleurAnnonces();
             $resultat = $controleur->recherche($_GET['categorie'], $_GET['text-recherche'], $_GET['localisation-recherche']);
-            var_dump($resultat) ;
+            $vue = new Vue();
+            $vue->afficherToutesCartes($resultat,1);
         }
     }
 
@@ -32,4 +32,4 @@
         <button type="submit" class="btn btn-primary" name="submit" value="rechercher">Rechercher</button>
     </div>
 </form>
-<script src="Js/selecteurCategorie.js"></script>
+<script src="Js/script.js"></script>
