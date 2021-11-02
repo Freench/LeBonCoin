@@ -2,11 +2,10 @@
     display: none;
 }
 
-<<<<<<< HEAD
 .section-recherche{
     background-color: red;
     border-radius: 30px;
-=======
+}
 body{
     background-color: #F3F3F3;
 }
@@ -93,5 +92,4 @@ form{
 .bouttonAnnonce{
     align-items: center;
     justify-content: center;
->>>>>>> alaedin
 }

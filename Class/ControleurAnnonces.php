@@ -6,7 +6,6 @@
             if($this->analyseEntreeAnnonce()){ 
                 $newIdAnnonce = $this->insertAnnonces();
                 $this->insertPhoto($newIdAnnonce);
-
             }
 
             if(isset($_POST['Suppr'])){
