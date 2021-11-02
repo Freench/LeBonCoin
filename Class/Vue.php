@@ -25,7 +25,7 @@ require_once "Annonces.php";
                         echo '<div class="col-4 d-flex bouttonAnnonce">';
                             echo '<a href="#" class="btn btn-primary">Voir l\'annonce</a>';
                             if($_SESSION['idUser'] == $idPageUtilisateur){
-                                echo '<form method="POST" action=""><button name="Suppr" class="btn btn-danger value='.$idAnnonce.' ">Supprimer</button></form>';
+                                echo '<form method="GET" action=""><button name="Suppr" type="submit" class="btn btn-danger" value='.$idAnnonce.'>Supprimer</button><input type="hidden" name="idPageUtilisateur" value="'.$idPageUtilisateur.'"></form>';
                             }
                         echo '</div>';
                     echo '</div>';

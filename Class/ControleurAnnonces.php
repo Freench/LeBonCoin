@@ -54,6 +54,8 @@
             $pdo = $this->connect();
             $sql = $pdo->prepare($requete);
             $sql-> execute([$id]);
+            $result = $sql -> fetchAll();
+            return $result;
         }
 
         function insertPhoto($newIdAnnonce){
@@ -85,7 +87,6 @@
             }
         }
 
-        
         function updateAnnonces($id){
             $requete =  "UPDATE annonces SET
                 titre_annonce = ?,
@@ -101,18 +102,13 @@
         }
 
         function deleteAnnonces($id){
-            if (isset($_POST['Suppr'])){
-                echo"on supprime $id";
+                echo"glumananananan $id";
                 $requete =  'DELETE FROM annonces WHERE id_annonce = ? ';//VALEURDANSLEBOUTTON
                 $pdo = $this->connect();
                 $sql =$pdo ->prepare($requete);
                 $sql -> execute([$id]);
                 return true;
-            }
         }
-
-        
-        
 
         function insertAnnoncesDetails($values){
             $requete =  'INSERT INTO annoncesdetails (
@@ -125,8 +121,6 @@
             return $pdo->lastInsertId();
         }
 
-        
-
         // function updateAnnoncesDetails($values, $id){
         //     $values.push($id);
         //     $requete =  "UPDATE annoncesdetails SET
@@ -138,8 +132,6 @@
         //     $sql -> execute($values);
         //     return $pdo->lastInsertId();
         // }
-
-       
 
         // function deleteAnnoncesDetails($id){
         //     $requete =  'DELETE FROM annoncesdetails WHERE id_annonce = ?';

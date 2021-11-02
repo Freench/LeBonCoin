@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 require_once '../Class/Bdd.php';
 require_once '../Class/ControleurAnnonces.php';
 
