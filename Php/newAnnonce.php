@@ -12,7 +12,6 @@ if (!isset($_SESSION['connected'])) {
 }
 ?>
 
-
 <form action="" method="POST" enctype="multipart/form-data">
         <input type="text"  name="titreAnnonce" placeholder="Titre de l'annonce" required>
         <input type="number"  name="prixAnnonce" placeholder="Prix de l'article" required>
@@ -33,9 +32,6 @@ if (!isset($_SESSION['connected'])) {
         $controleur = new ControleurAnnonces();
     }
     ?>
-
-
-
 <?php
     include('footer.php');
 ?>

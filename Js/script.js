@@ -1,4 +1,3 @@
-
 // Partie administrateur : Ajout Catégorie
 let btn_new_line = document.getElementById('btn-new-line');
 if(btn_new_line){
@@ -78,7 +77,7 @@ function ajax(url, params, jsFunction, jsFunctionParameters){
 
 
 // Générateur de sélecteur de catégorie
-ajax('../Ajax/selectAllCategories.php', [], genererCategorieSelelecteur, document.getElementById('categorie'))
+ajax('Ajax/selectAllCategories.php', [], genererCategorieSelelecteur, document.getElementById('categorie'))
 
 // genererCategorieSelelecteur(document.getElementById('categorie'), );
 
