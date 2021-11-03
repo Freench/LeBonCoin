@@ -3,11 +3,17 @@
 }
 
 .section-recherche{
-    background-color: red;
-    border-radius: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: #cbcbcb 0px 0px 20px 0px;
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom: 0.5vh;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 body{
-    background-color: #F3F3F3;
+    background-color: rgb(255, 255, 255);
 }
 
 .row{
@@ -17,8 +23,8 @@ body{
 
 #bandeau{
     height: 80px;
-    background-color: #2C187A;
-    color: rgb(255, 255, 255);
+    background-color: rgb(248,249,250);
+    color: rgb(0, 0, 0);
     font-size: 50px;
 }
 
@@ -71,7 +77,7 @@ body{
     color: #0497B7;
 }
 form{
-    padding-bottom: 15px;
+    padding: 0;
 }
 
 #bouttonConnection{
@@ -85,8 +91,8 @@ form{
 }
 
 .card{
-    width: 80%;
-    margin: 2.5% auto;
+    width: 100%;
+    margin: 20px auto;
 }
 
 .bouttonAnnonce{
@@ -101,4 +107,68 @@ form{
 #blockAnnonceur{
     display: flex;
     flex-direction: column;
+}
+
+#navRight{
+    justify-content: right;
+    align-items: center;
+}
+
+#Titre{
+    margin-left: 2vw;
+}
+
+#btRecherche{
+    justify-content: center;
+    margin: 2vh 0 2vh 0;
+}
+
+#Deco{
+    margin-left: 50%;
+}
+
+#legend{
+    justify-content: center;
+}
+
+.specificitees{
+    margin-top: 15px;
+}
+
+.details{
+    margin-left: 15px;
+}
+
+.descriptionAnnonce{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.infoAnnonce{
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.blockDetails{
+    background-color: rgb(248,249,250);
+    box-shadow: 1px 1px 20px 0px rgba(0, 0, 0, 0.25);
+    padding: 15px;
+}
+
+.boxRecherche{
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(248,249,250);
+    margin-top: 100px;
+    height: auto;
+}
+
+#btEnvoie{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.boxRecherche form{
+    margin: 50px 0;
 }

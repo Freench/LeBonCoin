@@ -13,7 +13,7 @@
     <div class="col section-recherche">
 
 
-        <legend>Rechercher une annonce </legend>
+        <legend id="legend" class="d-flex">Rechercher une annonce </legend>
         <div class = "row justify-content-center">
             <div class="col-3">
                 <label for="categorie" class="form-label">Catégorie :</label>
@@ -28,8 +28,9 @@
                 <input type="text" class="form-control" id="localisation-recherche" placeholder="Saisissez une ville" name="localisation-recherche">
             </div>
         </div>
-
-        <button type="submit" class="btn btn-primary" name="submit" value="rechercher">Rechercher</button>
+            <div id="btRecherche" class="d-flex">
+                <button type="submit" class="btn btn-primary" name="submit" value="rechercher">Rechercher</button>
+            </div>
     </div>
 </form>
 <script src="Js/script.js"></script>

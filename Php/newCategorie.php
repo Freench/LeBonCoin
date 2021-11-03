@@ -1,4 +1,6 @@
 <?php
+include 'header.php';
+include 'nav.php';
     /*Si le formulaire à déjà été rempli, on créé un objet ControleurCategorie qui va vérifier et créer les enregistrements dans catégorie
      et dans donnesspecifiques*/
     require_once('ControleurCategories.php');
@@ -18,3 +20,5 @@
 
 
 <script src="newCategorie.js"></script>
+
+<?php include 'footer.php'; ?>
