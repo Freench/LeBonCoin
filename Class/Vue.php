@@ -62,7 +62,7 @@ require_once "Utilisateurs.php";
         function afficherBtSuppr($idPageUtilisateur, $idAnnonce){
             if($_SESSION['idUser'] == $idPageUtilisateur){
                 echo'<div id="btSuppr">';
-                    echo '<form method="GET" action=""><button name="Suppr" type="submit" class="btn btn-danger" value='.$idAnnonce.'>Supprimer</button><input type="hidden" name="idPageUtilisateur" value="'.$idPageUtilisateur.'"></form>';
+                    echo '<form method="GET" action=""><button id="BtSupprimer" name="Suppr" type="submit" class="btn btn-danger" value='.$idAnnonce.'>Supprimer</button><input type="hidden" name="idPageUtilisateur" value="'.$idPageUtilisateur.'"></form>';
                 echo'</div>';
             }
         }

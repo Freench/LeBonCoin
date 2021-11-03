@@ -125,6 +125,11 @@ form{
 
 #Deco{
     margin-left: 50%;
+    white-space: nowrap;
+}
+
+#btAjoutAnnonce{
+    white-space: nowrap;
 }
 
 #legend{
@@ -203,3 +208,18 @@ select{
     border-radius: 5px;
     padding: 0 12px;
 } 
+
+#BtSupprimer{
+    margin-left: 15px;
+}
+
+.inputRecherche{
+    width: 33% !important;
+}
+
+@media (max-width: 950px){
+
+    .inputRecherche{
+        width: 80% !important;
+    }
+}
